@@ -2,46 +2,39 @@ import { motion } from 'framer-motion';
 
 const gridImages = [
   {
-    src: 'https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=800&h=600&fit=crop&q=80',
+    src: 'https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=1200&fit=crop&q=90',
     alt: 'Street workout',
     span: 'col-span-1 row-span-1',
-    aspect: 'aspect-[4/3]'
   },
   {
-    src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=800&fit=crop&q=80',
+    src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&fit=crop&q=90',
     alt: 'Functional training',
     span: 'col-span-1 row-span-2',
-    aspect: 'aspect-[3/4]'
   },
   {
-    src: 'https://images.unsplash.com/photo-1483721310020-03333e577078?w=800&h=600&fit=crop&q=80',
+    src: 'https://images.unsplash.com/photo-1483721310020-03333e577078?w=1200&fit=crop&q=90',
     alt: 'Outdoor training',
     span: 'col-span-1 row-span-1',
-    aspect: 'aspect-[4/3]'
   },
   {
-    src: 'https://images.unsplash.com/photo-1517963879433-6ad2b056d712?w=800&h=600&fit=crop&q=80',
+    src: 'https://images.unsplash.com/photo-1517963879433-6ad2b056d712?w=1200&fit=crop&q=90',
     alt: 'Athlete in action',
     span: 'col-span-1 row-span-1',
-    aspect: 'aspect-[4/3]'
   },
   {
-    src: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=800&h=600&fit=crop&q=80',
+    src: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=1200&fit=crop&q=90',
     alt: 'Calisthenics',
     span: 'col-span-1 row-span-1',
-    aspect: 'aspect-[4/3]'
   },
   {
-    src: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=800&fit=crop&q=80',
+    src: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&fit=crop&q=90',
     alt: 'Training session',
     span: 'col-span-1 row-span-2',
-    aspect: 'aspect-[3/4]'
   },
   {
-    src: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&h=600&fit=crop&q=80',
+    src: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1200&fit=crop&q=90',
     alt: 'Weight training',
     span: 'col-span-2 row-span-1',
-    aspect: 'aspect-[16/9]'
   },
 ];
 
@@ -98,9 +91,9 @@ export function InstagramGrid() {
                 }
               }}
               whileHover={{ scale: 1.03, zIndex: 10 }}
-              className={`group relative overflow-hidden bg-surface-elevated ${image.span}`}
+              className={`group relative aspect-square overflow-hidden bg-surface-elevated ${image.span}`}
             >
-              <div className={image.aspect}>
+              <div className="h-full w-full">
                 <motion.img
                   src={image.src}
                   alt={image.alt}
@@ -123,7 +116,7 @@ export function InstagramGrid() {
               </div>
 
               <div className="absolute bottom-2 left-2 right-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <span className="text-[10px] uppercase tracking-wider text-text-muted">
+                <span className="text-[11px] uppercase tracking-wider text-gray-300">
                   {image.alt}
                 </span>
               </div>

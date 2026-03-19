@@ -4,25 +4,25 @@ const trainingAreas = [
   {
     title: 'FUERZA',
     description: 'Potencia y resistencia muscular. Sin excusas.',
-    image: 'https://images.unsplash.com/photo-1581009146145-b5ef050c149a?w=600&h=900&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1581009146145-b5ef050c149a?w=1200&h=1600&fit=crop&q=90',
     tag: 'POWER'
   },
   {
     title: 'COORDINACIÓN',
     description: 'Control corporal total. Precisión en cada movimiento.',
-    image: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=900&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1200&h=1600&fit=crop&q=90',
     tag: 'AGILITY'
   },
   {
     title: 'VELOCIDAD',
     description: 'Explosividad que marca la diferencia.',
-    image: 'https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=600&h=900&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=1200&h=1600&fit=crop&q=90',
     tag: 'SPEED'
   },
   {
     title: 'RESISTENCIA',
     description: 'Rendir cuando el cuerpo ya no quiere.',
-    image: 'https://images.unsplash.com/photo-1538805060514-97d9cc17730c?w=600&h=900&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1538805060514-97d9cc17730c?w=1200&h=1600&fit=crop&q=90',
     tag: 'ENDURANCE'
   },
 ];

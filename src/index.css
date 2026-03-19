@@ -9,8 +9,8 @@
   --color-accent-green: #16a34a;
   --color-accent-orange: #ea580c;
   --color-accent-yellow: #ca8a04;
-  --color-text: #d4d4d4;
-  --color-text-muted: #737373;
+  --color-text: #ffffff;
+  --color-text-muted: #a3a3a3;
   
   --font-family-display: 'Inter', system-ui, sans-serif;
   --font-family-body: 'Inter', system-ui, sans-serif;
@@ -52,7 +52,7 @@ body {
 .vignette {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at center, transparent 0%, rgba(8,8,8,0.7) 100%);
+  background: radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.85) 100%);
   pointer-events: none;
 }
 

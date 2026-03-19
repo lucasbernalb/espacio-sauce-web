@@ -80,7 +80,7 @@ export function Philosophy() {
         >
           {[
             { value: '500+', label: 'Atletas', accent: 'text-accent-green' },
-            { value: '8', label: 'Años', accent: 'text-accent-yellow' },
+            { value: '8', label: 'Años', accent: 'text-yellow-400' },
             { value: '4', label: 'Disciplinas', accent: 'text-accent-orange' },
           ].map((stat, i) => (
             <motion.div 

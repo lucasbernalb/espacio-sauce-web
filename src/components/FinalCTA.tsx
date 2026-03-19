@@ -77,7 +77,11 @@ export function FinalCTA() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mt-12"
           >
-            <button className="group relative overflow-hidden bg-accent-green px-14 py-5 text-sm font-bold uppercase tracking-wider text-background transition-all duration-300 hover:shadow-xl hover:shadow-accent-green/20">
+            <motion.button
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="group relative overflow-hidden rounded-xl bg-accent-green px-14 py-5 text-sm font-bold uppercase tracking-wider text-background shadow-lg shadow-accent-green/30 transition-all duration-300 hover:shadow-xl hover:shadow-accent-green/50"
+            >
               <span className="relative z-10">Empezar</span>
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-accent-yellow via-accent-orange to-accent-orange"
@@ -85,7 +89,7 @@ export function FinalCTA() {
                 whileHover={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.4 }}
               />
-            </button>
+            </motion.button>
           </motion.div>
         </motion.div>
       </div>
