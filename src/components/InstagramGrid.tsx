@@ -5,42 +5,57 @@ const gridImages = [
     src: 'https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=1200&fit=crop&q=90',
     alt: 'Street workout',
     span: 'col-span-1 row-span-1',
+    aspect: 'aspect-[3/4]',
+    entryScale: 0.85,
   },
   {
     src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&fit=crop&q=90',
     alt: 'Functional training',
     span: 'col-span-1 row-span-2',
+    aspect: 'aspect-square',
+    entryScale: 0.92,
   },
   {
     src: 'https://images.unsplash.com/photo-1483721310020-03333e577078?w=1200&fit=crop&q=90',
     alt: 'Outdoor training',
     span: 'col-span-1 row-span-1',
+    aspect: 'aspect-[4/5]',
+    entryScale: 0.88,
   },
   {
     src: 'https://images.unsplash.com/photo-1517963879433-6ad2b056d712?w=1200&fit=crop&q=90',
     alt: 'Athlete in action',
     span: 'col-span-1 row-span-1',
+    aspect: 'aspect-[3/4]',
+    entryScale: 0.95,
   },
   {
     src: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=1200&fit=crop&q=90',
     alt: 'Calisthenics',
     span: 'col-span-1 row-span-1',
+    aspect: 'aspect-square',
+    entryScale: 0.9,
   },
   {
     src: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&fit=crop&q=90',
     alt: 'Training session',
     span: 'col-span-1 row-span-2',
+    aspect: 'aspect-[4/5]',
+    entryScale: 0.87,
   },
   {
     src: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1200&fit=crop&q=90',
     alt: 'Weight training',
     span: 'col-span-2 row-span-1',
+    aspect: 'aspect-[3/4]',
+    entryScale: 0.9,
   },
 ];
 
 export function InstagramGrid() {
   return (
-    <section className="section-grain bg-background px-4 py-24 lg:px-8">
+    <section className="section-grain relative bg-background px-4 py-24 lg:px-8">
+      <div className="vignette" />
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -66,7 +81,7 @@ export function InstagramGrid() {
         </motion.div>
 
         <motion.div 
-          className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4"
+          className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
@@ -83,29 +98,29 @@ export function InstagramGrid() {
             <motion.div
               key={index}
               variants={{
-                hidden: { opacity: 0, scale: 0.9 },
+                hidden: { opacity: 0, scale: image.entryScale },
                 visible: { 
                   opacity: 1, 
                   scale: 1,
                   transition: { duration: 0.5, ease: "easeOut" }
                 }
               }}
-              whileHover={{ scale: 1.03, zIndex: 10 }}
-              className={`group relative aspect-square overflow-hidden bg-surface-elevated ${image.span}`}
+              whileHover={{ scale: 1.05, y: -8, zIndex: 10 }}
+              className={`group relative ${image.aspect} overflow-hidden bg-surface-elevated ${image.span}`}
             >
               <div className="h-full w-full">
                 <motion.img
                   src={image.src}
                   alt={image.alt}
-                  className="h-full w-full object-cover grayscale transition-all duration-700"
-                  whileHover={{ scale: 1.2 }}
+                  className="h-full w-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0"
+                  whileHover={{ scale: 1.25 }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
                 />
               </div>
 
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-60 transition-opacity duration-500 group-hover:opacity-90" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-95" />
               
-              <div className="absolute inset-0 bg-accent-green/0 transition-colors duration-500 group-hover:bg-accent-green/15" />
+              <div className="absolute inset-0 bg-accent-green/0 transition-colors duration-500 group-hover:bg-accent-green/25" />
 
               <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                 <div className="rounded-full bg-background/90 p-4 backdrop-blur-sm">
@@ -115,11 +130,14 @@ export function InstagramGrid() {
                 </div>
               </div>
 
-              <div className="absolute bottom-2 left-2 right-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <span className="text-[11px] uppercase tracking-wider text-gray-300">
+              <div className="absolute bottom-2 left-2 right-2 opacity-0 transition-all duration-300 group-hover:opacity-100">
+                <div className="mb-2 h-0.5 w-8 bg-accent-green transition-all duration-500 group-hover:w-full" />
+                <span className="text-[11px] uppercase tracking-wider text-gray-200">
                   {image.alt}
                 </span>
               </div>
+
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-accent-green via-accent-yellow to-accent-orange opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
             </motion.div>
           ))}
         </motion.div>

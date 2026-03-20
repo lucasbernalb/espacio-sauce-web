@@ -18,15 +18,15 @@ export function Hero() {
   });
 
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
-  const scale = useTransform(scrollYProgress, [0, 0.7], [1, 1.12]);
-  const overlayOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.85]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.05]);
+  const overlayOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.9]);
 
   const scrollToTraining = () => {
     document.getElementById('training-areas')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section ref={containerRef} className="relative h-screen w-full overflow-hidden">
+    <section ref={containerRef} className="section-grain relative h-screen w-full overflow-hidden">
       <motion.div 
         className="absolute inset-0 grid grid-cols-3 gap-0.5 will-change-transform"
         style={{ y, scale }}
@@ -37,7 +37,7 @@ export function Hero() {
             className="relative overflow-hidden will-change-opacity"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1.2, delay: i * 0.15 }}
+            transition={{ duration: 0.8 }}
           >
             <img
               src={src}
@@ -58,7 +58,7 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/50" />
       </motion.div>
 
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
+      <div className="relative z-10 flex h-full flex-col items-start justify-center pl-[8%] pr-[12%] text-left">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -101,7 +101,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-8 max-w-xl text-base uppercase tracking-widest text-gray-300 sm:text-lg drop-shadow-md"
+          className="mt-8 max-w-xl text-base uppercase tracking-widest text-gray-300 sm:text-lg drop-shadow-lg"
         >
           Fuerza. Coordinación. Resistencia. Disciplina.
         </motion.p>

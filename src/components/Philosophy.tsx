@@ -9,6 +9,10 @@ export function Philosophy() {
         <div className="absolute left-1/3 top-1/2 h-[300px] w-[300px] rounded-full bg-accent-yellow/5 blur-[80px]" />
       </div>
 
+      <div className="absolute -left-16 top-1/4 h-32 w-32 rotate-45 bg-accent-green/10 blur-xl" />
+      <div className="absolute -right-12 bottom-1/3 h-24 w-24 rotate-12 bg-accent-orange/10 blur-lg" />
+      <div className="absolute left-0 bottom-0 h-16 w-48 rotate-[-3deg] bg-gradient-to-r from-accent-green/20 to-transparent" />
+
       <div className="vignette" />
 
       <div className="relative z-10 mx-auto max-w-5xl text-center">
@@ -64,11 +68,17 @@ export function Philosophy() {
             style={{ originX: 0 }}
           />
 
-          <p className="mx-auto mt-10 max-w-2xl text-base uppercase tracking-wide text-text-muted sm:text-lg">
+          <motion.p 
+            className="mx-auto mt-10 max-w-2xl text-base uppercase tracking-wide text-text-muted sm:text-lg"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             Entrenamiento funcional, adaptado a cada deporte y objetivo.
             <br />
             <span className="text-text">Sin excusas. Sin atajos.</span> Solo trabajo real.
-          </p>
+          </motion.p>
         </motion.div>
 
         <motion.div

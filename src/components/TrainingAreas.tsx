@@ -29,7 +29,10 @@ const trainingAreas = [
 
 export function TrainingAreas() {
   return (
-    <section id="training-areas" className="section-grain bg-surface px-4 py-24 lg:px-8">
+    <section id="training-areas" className="section-grain relative bg-surface px-4 py-24 lg:px-8">
+      <div className="vignette" />
+      <div className="absolute -left-8 top-1/2 h-20 w-20 rotate-12 bg-accent-green/10 blur-xl" />
+      <div className="absolute -right-4 top-1/4 h-16 w-16 -rotate-6 bg-accent-orange/10 blur-lg" />
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
