@@ -35,10 +35,10 @@ export function TrainingAreas() {
       <div className="absolute -right-4 top-1/4 h-16 w-16 -rotate-6 bg-accent-orange/10 blur-lg" />
       <div className="mx-auto max-w-7xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 40, filter: "blur(4px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           className="mb-16 text-center"
         >
           <span className="mb-4 block text-xs uppercase tracking-[0.3em] text-accent-orange">
@@ -61,12 +61,12 @@ export function TrainingAreas() {
           {trainingAreas.map((area, index) => (
             <motion.div
               key={area.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 40, filter: "blur(4px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -12 }}
-              className="group relative overflow-hidden bg-background"
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              whileHover={{ y: -8, scale: 1.02 }}
+              className="group relative overflow-hidden bg-background cursor-pointer"
             >
               <div className="relative aspect-[3/4] overflow-hidden">
                 <motion.img

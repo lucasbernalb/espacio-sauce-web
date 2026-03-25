@@ -18,8 +18,7 @@ export function Hero() {
   });
 
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.05]);
-  const overlayOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.9]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
 
   const scrollToTraining = () => {
     document.getElementById('training-areas')?.scrollIntoView({ behavior: 'smooth' });
@@ -30,6 +29,8 @@ export function Hero() {
       <motion.div 
         className="absolute inset-0 grid grid-cols-3 gap-0.5 will-change-transform"
         style={{ y, scale }}
+        animate={{ scale: [1, 1.02, 1] }}
+        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
       >
         {backgroundImages.map((src, i) => (
           <motion.div
@@ -37,7 +38,7 @@ export function Hero() {
             className="relative overflow-hidden will-change-opacity"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1 }}
           >
             <img
               src={src}
@@ -48,17 +49,10 @@ export function Hero() {
         ))}
       </motion.div>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-black/95 via-black/75 to-black/90" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/95 via-black/80 to-black/95" />
       <div className="vignette" />
 
-      <motion.div 
-        className="absolute inset-0 pointer-events-none"
-        style={{ opacity: overlayOpacity }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/50" />
-      </motion.div>
-
-      <div className="relative z-10 flex h-full flex-col items-start justify-center pl-[8%] pr-[12%] text-left">
+      <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

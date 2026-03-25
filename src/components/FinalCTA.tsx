@@ -21,10 +21,10 @@ export function FinalCTA() {
 
       <div className="relative z-10 mx-auto max-w-4xl text-center">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 40, filter: "blur(4px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
         >
           <motion.div 
             className="mx-auto mb-6 flex items-center justify-center gap-3"
@@ -79,8 +79,8 @@ export function FinalCTA() {
           >
             <motion.button
               whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              className="group relative overflow-hidden rounded-xl bg-accent-green px-14 py-5 text-sm font-bold uppercase tracking-wider text-background shadow-lg shadow-accent-green/30 transition-all duration-300 hover:shadow-xl hover:shadow-accent-green/50"
+              whileTap={{ scale: 0.95 }}
+              className="group relative cursor-pointer overflow-hidden rounded-xl bg-accent-green px-14 py-5 text-sm font-bold uppercase tracking-wider text-background shadow-lg shadow-accent-green/30 transition-shadow duration-300 hover:shadow-xl hover:shadow-accent-green/50"
             >
               <span className="relative z-10">Empezar</span>
               <motion.div
