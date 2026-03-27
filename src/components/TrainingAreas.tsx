@@ -4,28 +4,39 @@ const trainingAreas = [
   {
     title: 'FUERZA',
     description: 'Potencia y resistencia muscular. Sin excusas.',
-    image: 'https://images.unsplash.com/photo-1581009146145-b5ef050c149a?w=1200&h=1600&fit=crop&q=90',
-    tag: 'POWER'
+    image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1200&h=1600&fit=crop&q=90',
+    tag: 'POWER',
+    anchor: 'fuerza'
   },
   {
     title: 'COORDINACIÓN',
     description: 'Control corporal total. Precisión en cada movimiento.',
     image: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1200&h=1600&fit=crop&q=90',
-    tag: 'AGILITY'
+    tag: 'AGILITY',
+    anchor: 'coordinacion'
   },
   {
     title: 'VELOCIDAD',
     description: 'Explosividad que marca la diferencia.',
     image: 'https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=1200&h=1600&fit=crop&q=90',
-    tag: 'SPEED'
+    tag: 'SPEED',
+    anchor: 'velocidad'
   },
   {
     title: 'RESISTENCIA',
     description: 'Rendir cuando el cuerpo ya no quiere.',
     image: 'https://images.unsplash.com/photo-1538805060514-97d9cc17730c?w=1200&h=1600&fit=crop&q=90',
-    tag: 'ENDURANCE'
+    tag: 'ENDURANCE',
+    anchor: 'resistencia'
   },
 ];
+
+const scrollToSection = (anchor: string) => {
+  const element = document.getElementById(anchor);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+};
 
 export function TrainingAreas() {
   return (
@@ -59,14 +70,15 @@ export function TrainingAreas() {
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {trainingAreas.map((area, index) => (
-            <motion.div
+            <motion.button
               key={area.title}
+              onClick={() => scrollToSection(area.anchor)}
               initial={{ opacity: 0, y: 40, filter: "blur(4px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.08 }}
               whileHover={{ y: -8, scale: 1.02 }}
-              className="group relative overflow-hidden bg-background cursor-pointer"
+              className="group relative overflow-hidden bg-background cursor-pointer text-left w-full"
             >
               <div className="relative aspect-[3/4] overflow-hidden">
                 <motion.img
@@ -99,7 +111,7 @@ export function TrainingAreas() {
               </div>
 
               <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-accent-green via-accent-yellow to-accent-orange opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-            </motion.div>
+            </motion.button>
           ))}
         </div>
       </div>
